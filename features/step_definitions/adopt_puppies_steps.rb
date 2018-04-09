@@ -3,19 +3,19 @@ Given("I am on the puppy adoption site") do
 end
 
 When("I click the View Details button {int}") do |num|
-  @browser.button(:value=>'View Details', index: num).click
+  @browser.button(:value => 'View Details', index: num).click
 end
 
 When("I click the Adopt Me button") do
-  @browser.button(:value =>'Adopt Me!').click
+  @browser.button(:value => 'Adopt Me!').click
 end
 
 When("I click the Adopt Another Puppy button") do
-  @browser.button(:value =>'Adopt Another Puppy').click
+  @browser.button(:value => 'Adopt Another Puppy').click
 end
 
 When("I click the Complete the Adoption button") do
-  @browser.button(:value =>'Complete the Adoption').click
+  @browser.button(:value => 'Complete the Adoption').click
 end
 
 When("I enter {string} in the name field") do |name|
@@ -35,9 +35,9 @@ When("I select {string} in the payment dropdown") do |payment_type|
 end
 
 When("I select the Place order button") do
-  @browser.button(:value =>'Place Order').click
+  @browser.button(:value => 'Place Order').click
 end
 
-Then("I should see {string}") do |expected_message|
-  expect(@browser.text).to include expected_message
+Then("I should see {string}") do |expected_success_message|
+  expect(@browser.text).to include expected_success_message
 end

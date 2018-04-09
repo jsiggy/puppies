@@ -48,3 +48,9 @@ Feature: Puppy adoption
       | Lori | 3409 Esperanza Crossing | lori@baz.zot  | Check          |
       | Alex | 2404 Oak Manor          | alex@blah.com | Purchase order |
 
+  Scenario: validate cart with one puppy
+    When I click the View Details button 1
+    And I click the Adopt Me button
+    Then I should see "Brook" as the name or line item 1
+    And I should see "$34.95" as the subtotal for line item 1
+    And I should see "$34.95" as the cart total
