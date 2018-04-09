@@ -1,5 +1,5 @@
 Given(/^I have no cheese$/) do
-  pending
+  puts "I have no cheese"
 end
 
 When(/^I press the make cheese button$/) do
