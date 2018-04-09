@@ -3,15 +3,15 @@ Given("I am on the puppy adoption site") do
 end
 
 When("I click the View Details button") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.button(:value =>'View Details').click
 end
 
-And("I click the Adopt Me button") do
-  pending # Write code here that turns the phrase above into concrete actions
+When("I click the Adopt Me button") do
+  @browser.button(:value =>'Adopt Me!').click
 end
 
-And("I click the Complete the Adoption button") do
-  pending # Write code here that turns the phrase above into concrete actions
+When("I click the Complete the Adoption button") do
+  @browser.button(:value =>'Complete the Adoption').click
 end
 
 And("I enter {string} in the name field") do |string|
