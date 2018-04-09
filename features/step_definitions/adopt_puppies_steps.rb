@@ -28,7 +28,6 @@ end
 
 When("I select {string} in the payment dropdown") do |payment_type|
   @browser.select_list(:id => 'order_pay_type').select(payment_type)
-  sleep 3
 end
 
 When("I select the Place order button") do
