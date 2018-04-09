@@ -31,8 +31,8 @@ When("I select {string} in the payment dropdown") do |payment_type|
   sleep 3
 end
 
-When("I select {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I select the Place order button") do
+  @browser.button(:value =>'Place Order').click
 end
 
 Then("I should see {string}") do |string|
