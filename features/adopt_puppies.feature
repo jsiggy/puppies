@@ -4,8 +4,10 @@ Feature: Puppy adoption
   I want to adopt puppies
   So that I can save the lost puppies
 
-  Scenario: adopt one puppy
+  Background:
     Given I am on the puppy adoption site
+
+  Scenario: adopt one puppy
     When I click the View Details button 0
     And I click the Adopt Me button
     And I click the Complete the Adoption button
@@ -17,7 +19,6 @@ Feature: Puppy adoption
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: adopt two puppies
-    Given I am on the puppy adoption site
     When I click the View Details button 1
     And I click the Adopt Me button
     And I click the Adopt Another Puppy button
@@ -32,7 +33,6 @@ Feature: Puppy adoption
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario Outline: different people adopting a puppy
-    Given I am on the puppy adoption site
     When I click the View Details button 2
     And I click the Adopt Me button
     And I click the Complete the Adoption button
@@ -47,3 +47,4 @@ Feature: Puppy adoption
       | John | 8110 Ranch Rd 2222      | john@foo.bar  | Credit card    |
       | Lori | 3409 Esperanza Crossing | lori@baz.zot  | Check          |
       | Alex | 2404 Oak Manor          | alex@blah.com | Purchase order |
+
