@@ -14,23 +14,24 @@ When("I click the Complete the Adoption button") do
   @browser.button(:value =>'Complete the Adoption').click
 end
 
-And("I enter {string} in the name field") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I enter {string} in the name field") do |name|
+  @browser.text_field(:id => 'order_name').set(name)
 end
 
-And("I enter {string} in the address field") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I enter {string} in the address field") do |address|
+  @browser.textarea(:id => 'order_address').set(address)
 end
 
-And("I enter {string} in the email field") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I enter {string} in the email field") do |email|
+  @browser.text_field(:id => 'order_email').set(email)
 end
 
-And("I select {string} in the payment dropdown") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I select {string} in the payment dropdown") do |payment_type|
+  @browser.select_list(:id => 'order_pay_type').select(payment_type)
+  sleep 3
 end
 
-And("I select {string}") do |string|
+When("I select {string}") do |string|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
