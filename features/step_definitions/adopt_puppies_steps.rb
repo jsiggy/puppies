@@ -35,6 +35,6 @@ When("I select the Place order button") do
   @browser.button(:value =>'Place Order').click
 end
 
-Then("I should see {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I should see {string}") do |success_message|
+  fail 'Looks like we did not successfully adopt a puppy!' unless @browser.text.include? success_message
 end
