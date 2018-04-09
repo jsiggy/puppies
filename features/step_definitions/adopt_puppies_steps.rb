@@ -2,8 +2,8 @@ Given("I am on the puppy adoption site") do
   @browser.goto "http://puppies.herokuapp.com"
 end
 
-When("I click the View Details button") do
-  @browser.button(:value =>'View Details').click
+When("I click the View Details button {int}") do |num|
+  @browser.button(:value=>'View Details', index: num).click
 end
 
 When("I click the Adopt Me button") do

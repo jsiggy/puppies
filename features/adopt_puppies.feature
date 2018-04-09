@@ -6,7 +6,7 @@ Feature: Puppy adoption
 
   Scenario: adopt one puppy
     Given I am on the puppy adoption site
-    When I click the View Details button
+    When I click the View Details button 0
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     And I enter "John" in the name field
@@ -18,10 +18,10 @@ Feature: Puppy adoption
 
   Scenario: adopt two puppies
     Given I am on the puppy adoption site
-    When I click the View Details button
+    When I click the View Details button 1
     And I click the Adopt Me button
     And I click the Adopt Another Puppy button
-    When I click the View Details button
+    When I click the View Details button 3
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     And I enter "John" in the name field
