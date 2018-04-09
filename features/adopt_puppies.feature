@@ -13,5 +13,5 @@ Feature: Puppy adoption
     And I enter "8110 Ranch Rd 2222" in the address field
     And I enter "john@foo.bar" in the email field
     And I select "Credit card" in the payment dropdown
-    And I select "Place order"
+    And I select 'Place order'
     Then I should see "Thank you for adopting a puppy!"
