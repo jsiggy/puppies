@@ -3,9 +3,9 @@ Given(/^I have no cheese$/) do
 end
 
 When(/^I press the make cheese button$/) do
-  pending
+  puts "I hope this button works!"
 end
 
 Then(/^I should have (\d+) piece of cheese$/) do |pieces|
-  pending
+  puts "rejoice! we have #{pieces} pieces of cheese"
 end
