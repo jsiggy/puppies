@@ -1,5 +1,5 @@
 Given("I am on the puppy adoption site") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.goto "http://puppies.herokuapp.com"
 end
 
 When("I click the View Details button") do
