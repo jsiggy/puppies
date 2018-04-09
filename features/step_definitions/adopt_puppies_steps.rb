@@ -10,6 +10,10 @@ When("I click the Adopt Me button") do
   @browser.button(:value =>'Adopt Me!').click
 end
 
+When("I click the Adopt Another Puppy button") do
+  @browser.button(:value =>'Adopt Another Puppy').click
+end
+
 When("I click the Complete the Adoption button") do
   @browser.button(:value =>'Complete the Adoption').click
 end
