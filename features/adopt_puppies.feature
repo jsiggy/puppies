@@ -30,3 +30,20 @@ Feature: Puppy adoption
     And I select "Credit card" in the payment dropdown
     And I select the Place order button
     Then I should see "Thank you for adopting a puppy!"
+
+  Scenario Outline: different people adopting a puppy
+    Given I am on the puppy adoption site
+    When I click the View Details button 2
+    And I click the Adopt Me button
+    And I click the Complete the Adoption button
+    And I enter "<name>" in the name field
+    And I enter "<address>" in the address field
+    And I enter "<email>" in the email field
+    And I select "<payment_type>" in the payment dropdown
+    And I select the Place order button
+    Then I should see "Thank you for adopting a puppy!"
+    Examples:
+      | name | address                 | email         | payment_type   |
+      | John | 8110 Ranch Rd 2222      | john@foo.bar  | Credit card    |
+      | Lori | 3409 Esperanza Crossing | lori@baz.zot  | Check          |
+      | Alex | 2404 Oak Manor          | alex@blah.com | Purchase order |
