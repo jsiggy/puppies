@@ -41,3 +41,17 @@ end
 Then("I should see {string}") do |expected_success_message|
   expect(@browser.text).to include expected_success_message
 end
+
+Then("I should see {string} as the name or line item {int}") do |name, line_item|
+  row = (line_item.to_i - 1) * 6
+  expect(@browser.table(index: 0)[row][1].text).to include name
+end
+
+Then ("I should see {string} as the subtotal for line item {int}") do |subtotal, line_item|
+  row = (line_item.to_i - 1) * 6
+  expect(@browser.table(index: 0)[row][3].text).to eql subtotal
+end
+
+Then ("I should see {string} as the cart total") do |total|
+  expect(@browser.td(class: 'total_cell').text).to eql total
+end
