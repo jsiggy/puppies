@@ -34,8 +34,8 @@ When("I enter {string} in the email field") do |email|
   on(CheckoutPage).email = email
 end
 
-When("I select {string} in the payment dropdown") do |payment_type|
-  on(CheckoutPage).pay_type = payment_type
+When("I select {string} in the payment dropdown") do |pay_type|
+  on(CheckoutPage).pay_type = pay_type
 end
 
 When("I select the Place order button") do

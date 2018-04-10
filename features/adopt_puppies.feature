@@ -23,8 +23,8 @@ Feature: Puppy adoption
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     When I complete the adoption of a puppy with:
-      | name | address                 | email         | payment_type   |
-      | John | 8110 Ranch Rd 2222      | john@foo.bar  | Credit card    |
+      | name | address            | email        | pay_type |
+      | John | 8110 Ranch Rd 2222 | john@foo.bar | Credit card |
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: adopt two puppies
@@ -67,11 +67,11 @@ Feature: Puppy adoption
     And I enter "<name>" in the name field
     And I enter "<address>" in the address field
     And I enter "<email>" in the email field
-    And I select "<payment_type>" in the payment dropdown
+    And I select "<pay_type>" in the payment dropdown
     And I select the Place order button
     Then I should see "Thank you for adopting a puppy!"
     Examples:
-      | name | address                 | email         | payment_type   |
+      | name | address                 | email         | pay_type       |
       | John | 8110 Ranch Rd 2222      | john@foo.bar  | Credit card    |
       | Lori | 3409 Esperanza Crossing | lori@baz.zot  | Check          |
       | Alex | 2404 Oak Manor          | alex@blah.com | Purchase order |
