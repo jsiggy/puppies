@@ -35,6 +35,16 @@ When("I complete the adoption of a puppy using a {string}") do |pay_type|
   on(CheckoutPage).checkout('pay_type' => pay_type)
 end
 
+When("I complete the adoption of two puppies") do
+  on(HomePage).select_puppy 'Maggie Mae'
+  on(DetailsPage).add_to_cart
+  on(ShoppingCartPage).continue_shopping
+  on(HomePage).select_puppy 'Brook'
+  on(DetailsPage).add_to_cart
+  on(ShoppingCartPage).checkout
+  on(CheckoutPage).checkout
+end
+
 When("I click the Adopt Another Puppy button") do
   on(ShoppingCartPage).continue_shopping
 end

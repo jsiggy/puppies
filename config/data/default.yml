@@ -3,4 +3,3 @@ checkout_page:
   address: ~street_address
   email: ~email_address
   pay_type: ~randomize ['Check', 'Purchase order', 'Credit card']
-
