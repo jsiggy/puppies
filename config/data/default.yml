@@ -1,6 +1,6 @@
 checkout_page:
-  name: 'Siggy'
-  address: '539 Rockingham Dr'
-  email: 'siggy@foo.bar'
-  pay_type: 'Check'
+  name: ~full_name
+  address: ~street_address
+  email: ~email_address
+  pay_type: ~randomize ['Check', 'Purchase order', 'Credit card']
 
