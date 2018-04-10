@@ -1,59 +1,69 @@
 Given("I am on the puppy adoption site") do
-  @browser.goto "http://puppies.herokuapp.com"
-  @home = HomePage.new(@browser)
+  visit(HomePage)
+  # @browser.goto "http://puppies.herokuapp.com"
+  # @home = HomePage.new(@browser)
 end
 
 When("I click the View Details button {int}") do |num|
-  @home.select_puppy_number num
-  @details = DetailsPage.new(@browser)
+  on(HomePage).select_puppy_number num
+  # @home.select_puppy(num)
+  # @details = DetailsPage.new(@browser)
 end
 
 When("I click the Adopt Me button") do
-  @details.add_to_cart
-  @cart = ShoppingCartPage.new(@browser)
+  on(DetailsPage).add_to_cart
+  # @details.add_to_cart
+  # @cart = ShoppingCartPage.new(@browser)
 end
 
 When("I click the Adopt Another Puppy button") do
-  @cart.continue_shopping
+  on(ShoppingCartPage).continue_shopping
+  # @cart.continue_shopping
 end
 
 When("I click the Complete the Adoption button") do
-  @cart.checkout
-  @checkout = CheckoutPage.new(@browser)
+  on(ShoppingCartPage).checkout
+  # @cart.checkout
+  # @checkout = CheckoutPage.new(@browser)
 end
 
 When("I enter {string} in the name field") do |name|
-  @checkout.name = name
+  on(CheckoutPage).name = name
+  # @checkout.name = name
 end
 
 When("I enter {string} in the address field") do |address|
-  @checkout.address = address
+  on(CheckoutPage).address = address
+  # @checkout.address = address
 end
 
 When("I enter {string} in the email field") do |email|
-  @checkout.email = email
+  on(CheckoutPage).email = email
+  # @checkout.email = email
 end
 
 When("I select {string} in the payment dropdown") do |payment_type|
-  @checkout.pay_type = payment_type
+  on(CheckoutPage).pay_type = payment_type
+  # @checkout.pay_type = payment_type
 end
 
 When("I select the Place order button") do
-  @checkout.place_order
+  on(CheckoutPage).place_order
+  # @checkout.place_order
 end
 
-Then("I should see {string} as the name or line item {int}") do |name, line_item|
-  expect(@cart.name_for_line_item(line_item.to_i)).to include name
+Then("I should see {string} as the name for line item {int}") do |name, line_item|
+  expect(on(ShoppingCartPage).name_for_line_item(line_item.to_i)).to include name
 end
 
 Then ("I should see {string} as the subtotal for line item {int}") do |subtotal, line_item|
-  expect(@cart.subtotal_for_line_item(line_item)).to eql subtotal
+  expect(on(ShoppingCartPage).subtotal_for_line_item(line_item)).to eql subtotal
 end
 
 Then ("I should see {string} as the cart total") do |total|
-  expect(@cart.total).to eql total
+  expect(on(ShoppingCartPage).total).to eql total
 end
 
 Then("I should see {string}") do |expected_success_message|
-  expect(@browser.text).to include expected_success_message
+  expect(@current_page.text).to include expected_success_message
 end
