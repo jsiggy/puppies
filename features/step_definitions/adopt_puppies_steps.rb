@@ -12,11 +12,11 @@ When("I click the Adopt Me button") do
 end
 
 When("I click the Adopt Another Puppy button") do
-  @browser.button(:value => 'Adopt Another Puppy').click
+  @cart.continue_shopping
 end
 
 When("I click the Complete the Adoption button") do
-  @browser.button(:value => 'Complete the Adoption').click
+  @cart.checkout
 end
 
 When("I enter {string} in the name field") do |name|
@@ -39,21 +39,18 @@ When("I select the Place order button") do
   @browser.button(:value => 'Place Order').click
 end
 
-Then("I should see {string}") do |expected_success_message|
-  expect(@browser.text).to include expected_success_message
-end
-
 Then("I should see {string} as the name or line item {int}") do |name, line_item|
-#  expect(cart_line_item(line_item)[1].text).to include name
   expect(@cart.name_for_line_item(line_item.to_i)).to include name
 end
 
 Then ("I should see {string} as the subtotal for line item {int}") do |subtotal, line_item|
-#  expect(cart_line_item(line_item)[3].text).to eql subtotal
   expect(@cart.subtotal_for_line_item(line_item)).to eql subtotal
 end
 
 Then ("I should see {string} as the cart total") do |total|
-#  expect(@browser.td(class: 'total_cell').text).to eql total
   expect(@cart.total).to eql total
+end
+
+Then("I should see {string}") do |expected_success_message|
+  expect(@browser.text).to include expected_success_message
 end

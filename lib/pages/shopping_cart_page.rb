@@ -20,6 +20,14 @@ class ShoppingCartPage
     @browser.td(class: 'total_cell').text
   end
 
+  def continue_shopping
+    @browser.button(:value => 'Adopt Another Puppy').click
+  end
+
+  def checkout
+    @browser.button(:value => 'Complete the Adoption').click
+  end
+
   private
 
   def row_for(line_item)
