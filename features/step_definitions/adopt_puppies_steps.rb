@@ -28,6 +28,13 @@ When("I complete the adoption of a puppy") do
   on(CheckoutPage).checkout
 end
 
+When("I complete the adoption of a puppy named {string}") do |name|
+  on(HomePage).select_puppy name
+  on(DetailsPage).add_to_cart
+  on(ShoppingCartPage).checkout
+  on(CheckoutPage).checkout
+end
+
 When("I complete the adoption of a puppy using a {string}") do |pay_type|
   on(HomePage).select_puppy
   on(DetailsPage).add_to_cart

@@ -9,7 +9,7 @@ Feature: Puppy adoption
 
 
   Scenario: can adopt one puppy (all default data)
-    When I complete the adoption of a puppy
+    When I complete the adoption of a puppy named 'Hanna'
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: can adopt one puppy (specify payment_type only)
