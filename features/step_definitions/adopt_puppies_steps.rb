@@ -3,7 +3,7 @@ Given("I am on the puppy adoption site") do
 end
 
 When("I click the View Details button") do
-  on(HomePage).select_puppy
+  navigate_to(DetailsPage)
 end
 
 When("I click the View Details button for {string}") do |name|
@@ -22,10 +22,7 @@ When("I complete the adoption of a puppy with:") do |table|
 end
 
 When("I complete the adoption of a puppy") do
-  on(HomePage).select_puppy 'Maggie Mae'
-  on(DetailsPage).add_to_cart
-  on(ShoppingCartPage).proceed_to_checkout
-  on(CheckoutPage).checkout
+  navigate_all
 end
 
 When("I complete the adoption of a puppy named {string}") do |name|
