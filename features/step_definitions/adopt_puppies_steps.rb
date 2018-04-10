@@ -15,11 +15,14 @@ When("I click the Adopt Me button") do
 end
 
 When("I complete the adoption of a puppy with:") do |table|
+  on(HomePage).select_puppy "Hanna"
+  on(DetailsPage).add_to_cart
+  on(ShoppingCartPage).checkout
   on(CheckoutPage).checkout(table.hashes.first)
 end
 
 When("I complete the adoption of a puppy") do
-  on(HomePage).select_puppy
+  on(HomePage).select_puppy 'Maggie Mae'
   on(DetailsPage).add_to_cart
   on(ShoppingCartPage).checkout
   on(CheckoutPage).checkout
