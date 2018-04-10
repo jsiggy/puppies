@@ -2,7 +2,7 @@ class ShoppingCartPage
 
   NAME_COLUMN = 1
   SUBTOTAL_COLUMN = 3
-  LINES_PER_PUPPY = 6
+  LINE_ITEMS_PER_PUPPY = 6
 
   def initialize(browser)
     @browser = browser
@@ -31,7 +31,7 @@ class ShoppingCartPage
   private
 
   def row_for(line_item)
-    row = (line_item.to_i - 1) * LINES_PER_PUPPY
+    row = (line_item.to_i - 1) * LINE_ITEMS_PER_PUPPY
   end
 
   def cart_line_item(line_item)
