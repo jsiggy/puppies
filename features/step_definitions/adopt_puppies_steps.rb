@@ -1,11 +1,3 @@
-def row_for(line_item)
-  row = (line_item.to_i - 1) * 6
-end
-
-def cart_line_item(line_item)
-  @browser.table(index: 0)[row_for(line_item)]
-end
-
 Given("I am on the puppy adoption site") do
   @browser.goto "http://puppies.herokuapp.com"
 end
@@ -16,6 +8,7 @@ end
 
 When("I click the Adopt Me button") do
   @browser.button(:value => 'Adopt Me!').click
+  @cart = ShoppingCartPage.new(@browser)
 end
 
 When("I click the Adopt Another Puppy button") do
@@ -51,13 +44,16 @@ Then("I should see {string}") do |expected_success_message|
 end
 
 Then("I should see {string} as the name or line item {int}") do |name, line_item|
-  expect(cart_line_item(line_item)[1].text).to include name
+#  expect(cart_line_item(line_item)[1].text).to include name
+  expect(@cart.name_for_line_item(line_item.to_i)).to include name
 end
 
 Then ("I should see {string} as the subtotal for line item {int}") do |subtotal, line_item|
-  expect(cart_line_item(line_item)[3].text).to eql subtotal
+#  expect(cart_line_item(line_item)[3].text).to eql subtotal
+  expect(@cart.subtotal_for_line_item(line_item)).to eql subtotal
 end
 
 Then ("I should see {string} as the cart total") do |total|
-  expect(@browser.td(class: 'total_cell').text).to eql total
+#  expect(@browser.td(class: 'total_cell').text).to eql total
+  expect(@cart.total).to eql total
 end
