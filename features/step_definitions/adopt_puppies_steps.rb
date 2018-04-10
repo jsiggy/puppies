@@ -42,6 +42,13 @@ When("I complete the adoption of a puppy using a {string}") do |pay_type|
   on(CheckoutPage).checkout('pay_type' => pay_type)
 end
 
+When("I complete the adoption of a puppy named {string} using a {string}") do |name, pay_type|
+  on(HomePage).select_puppy name
+  on(DetailsPage).add_to_cart
+  on(ShoppingCartPage).checkout
+  on(CheckoutPage).checkout('pay_type' => pay_type)
+end
+
 When("I complete the adoption of two puppies") do
   on(HomePage).select_puppy 'Maggie Mae'
   on(DetailsPage).add_to_cart

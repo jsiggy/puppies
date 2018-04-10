@@ -7,7 +7,6 @@ Feature: Puppy adoption
   Background:
     Given I am on the puppy adoption site
 
-
   Scenario: can adopt one puppy (all default data)
     When I complete the adoption of a puppy named 'Hanna'
     Then I should see "Thank you for adopting a puppy!"
@@ -25,13 +24,13 @@ Feature: Puppy adoption
     Then I should see "Name can't be blank"
 
   Scenario Outline: can checkout with different payment types
-    When I complete the adoption of a puppy using a "<pay_type>"
+    When I complete the adoption of a puppy named "<name>" using a "<pay_type>"
     Then I should see "Thank you for adopting a puppy!"
     Examples:
-      | pay_type       |
-      | Credit card    |
-      | Check          |
-      | Purchase order |
+      | name     | pay_type       |
+      | Hanna    | Credit card    |
+      | Benjamin | Check          |
+      | Brook    | Purchase order |
 
   Scenario: validate cart with one puppy
     When I click the View Details button for "Brook"
