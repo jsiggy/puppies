@@ -15,10 +15,7 @@ When("I click the Adopt Me button") do
 end
 
 When("I complete the adoption of a puppy with:") do |table|
-  on(HomePage).select_puppy "Hanna"
-  on(DetailsPage).add_to_cart
-  on(ShoppingCartPage).proceed_to_checkout
-  on(CheckoutPage).checkout(table.hashes.first)
+  navigate_to(CheckoutPage).checkout(table.hashes.first)
 end
 
 When("I complete the adoption of a puppy") do
@@ -33,10 +30,7 @@ When("I complete the adoption of a puppy named {string}") do |name|
 end
 
 When("I complete the adoption of a puppy using a {string}") do |pay_type|
-  on(HomePage).select_puppy
-  on(DetailsPage).add_to_cart
-  on(ShoppingCartPage).proceed_to_checkout
-  on(CheckoutPage).checkout('pay_type' => pay_type)
+  navigate_to(CheckoutPage).checkout('pay_type' => pay_type)
 end
 
 When("I complete the adoption of a puppy named {string} using a {string}") do |name, pay_type|
@@ -57,10 +51,7 @@ When("I complete the adoption of two puppies") do
 end
 
 When("I attempt to checkout without a name") do
-  on(HomePage).select_puppy
-  on(DetailsPage).add_to_cart
-  on(ShoppingCartPage).proceed_to_checkout
-  on(CheckoutPage).checkout('name' => '')
+  navigate_to(CheckoutPage).checkout('name' => '')
 end
 
 When("I click the Adopt Another Puppy button") do
