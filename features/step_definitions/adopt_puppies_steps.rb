@@ -109,3 +109,7 @@ end
 Then("I should see {string}") do |expected_message|
   expect(@current_page.text).to include expected_message
 end
+
+Then("I should see an error message which says {string}") do |expected_message|
+  expect(on(CheckoutPage).error_messages).to include expected_message
+end

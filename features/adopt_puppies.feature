@@ -21,7 +21,7 @@ Feature: Puppy adoption
 
   Scenario: checkout requires a name
     When I attempt to checkout without a name
-    Then I should see "Name can't be blank"
+    Then I should see an error message which says "Name can't be blank"
 
   Scenario Outline: can checkout with different payment types
     When I complete the adoption of a puppy named "<name>" using a "<pay_type>"
