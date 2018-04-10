@@ -7,6 +7,7 @@ Feature: Puppy adoption
   Background:
     Given I am on the puppy adoption site
 
+
   Scenario: can adopt one puppy (all default data)
     When I complete the adoption of a puppy
     Then I should see "Thank you for adopting a puppy!"
@@ -18,6 +19,10 @@ Feature: Puppy adoption
   Scenario: can adopt two puppies
     When I complete the adoption of two puppies
     Then I should see "Thank you for adopting a puppy!"
+
+  Scenario: checkout requires a name
+    When I attempt to checkout without a name
+    Then I should see "Name can't be blank"
 
   Scenario Outline: can checkout with different payment types
     When I complete the adoption of a puppy using a "<pay_type>"

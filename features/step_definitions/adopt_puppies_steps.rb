@@ -45,6 +45,13 @@ When("I complete the adoption of two puppies") do
   on(CheckoutPage).checkout
 end
 
+When("I attempt to checkout without a name") do
+  on(HomePage).select_puppy
+  on(DetailsPage).add_to_cart
+  on(ShoppingCartPage).checkout
+  on(CheckoutPage).checkout('name' => '')
+end
+
 When("I click the Adopt Another Puppy button") do
   on(ShoppingCartPage).continue_shopping
 end
@@ -85,6 +92,6 @@ Then ("I should see {string} as the cart total") do |total|
   expect(on(ShoppingCartPage).total).to eql total
 end
 
-Then("I should see {string}") do |expected_success_message|
-  expect(@current_page.text).to include expected_success_message
+Then("I should see {string}") do |expected_message|
+  expect(@current_page.text).to include expected_message
 end
