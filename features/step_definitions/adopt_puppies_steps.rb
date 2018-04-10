@@ -4,10 +4,11 @@ end
 
 When("I click the View Details button {int}") do |num|
   @browser.button(:value => 'View Details', index: num).click
+  @details = DetailsPage.new(@browser)
 end
 
 When("I click the Adopt Me button") do
-  @browser.button(:value => 'Adopt Me!').click
+  @details.add_to_cart
   @cart = ShoppingCartPage.new(@browser)
 end
 
