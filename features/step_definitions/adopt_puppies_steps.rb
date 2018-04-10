@@ -14,6 +14,11 @@ When("I complete the adoption of a puppy with:") do |table|
   on(CheckoutPage).checkout(table.hashes.first)
 end
 
+When("I complete the adoption of a puppy") do
+  on(CheckoutPage).checkout
+end
+
+
 When("I click the Adopt Another Puppy button") do
   on(ShoppingCartPage).continue_shopping
 end

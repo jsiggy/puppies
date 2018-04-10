@@ -27,6 +27,13 @@ Feature: Puppy adoption
       | John | 8110 Ranch Rd 2222 | john@foo.bar | Credit card |
     Then I should see "Thank you for adopting a puppy!"
 
+  Scenario: adopt one puppy (use default data for the all user inputs)
+    When I click the View Details button for "Benjamin"
+    And I click the Adopt Me button
+    And I click the Complete the Adoption button
+    When I complete the adoption of a puppy
+    Then I should see "Thank you for adopting a puppy!"
+
   Scenario: adopt two puppies
     When I click the View Details button for "Brook"
     And I click the Adopt Me button
