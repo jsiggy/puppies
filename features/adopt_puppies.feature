@@ -23,7 +23,7 @@ Feature: Puppy adoption
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     When I complete the adoption of a puppy with:
-      | name | address            | email        | pay_type |
+      | name | address            | email        | pay_type    |
       | John | 8110 Ranch Rd 2222 | john@foo.bar | Credit card |
     Then I should see "Thank you for adopting a puppy!"
 
@@ -32,6 +32,13 @@ Feature: Puppy adoption
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     When I complete the adoption of a puppy
+    Then I should see "Thank you for adopting a puppy!"
+
+  Scenario: adopt one puppy (use default except for payment_type)
+    When I click the View Details button for "Benjamin"
+    And I click the Adopt Me button
+    And I click the Complete the Adoption button
+    When I complete the adoption of a puppy using a "Credit card"
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: adopt two puppies
