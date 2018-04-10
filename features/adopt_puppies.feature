@@ -8,7 +8,7 @@ Feature: Puppy adoption
     Given I am on the puppy adoption site
 
   Scenario: adopt one puppy
-    When I click the View Details button 0
+    When I click the View Details button for "Benjamin"
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     And I enter "John" in the name field
@@ -19,10 +19,10 @@ Feature: Puppy adoption
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: adopt two puppies
-    When I click the View Details button 1
+    When I click the View Details button for "Brook"
     And I click the Adopt Me button
     And I click the Adopt Another Puppy button
-    When I click the View Details button 3
+    When I click the View Details button for "Maggie Mae"
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     And I enter "John" in the name field
@@ -33,7 +33,7 @@ Feature: Puppy adoption
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario Outline: different people adopting a puppy
-    When I click the View Details button 2
+    When I click the View Details button for "Hanna"
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     And I enter "<name>" in the name field
@@ -49,17 +49,17 @@ Feature: Puppy adoption
       | Alex | 2404 Oak Manor          | alex@blah.com | Purchase order |
 
   Scenario: validate cart with one puppy
-    When I click the View Details button 1
+    When I click the View Details button for "Brook"
     And I click the Adopt Me button
     Then I should see "Brook" as the name for line item 1
     And I should see "$34.95" as the subtotal for line item 1
     And I should see "$34.95" as the cart total
 
   Scenario: validate cart with two puppies
-    When I click the View Details button 1
+    When I click the View Details button for "Brook"
     And I click the Adopt Me button
     And I click the Adopt Another Puppy button
-    And I click the View Details button 2
+    And I click the View Details button for "Hanna"
     And I click the Adopt Me button
     Then I should see "Brook" as the name for line item 1
     And I should see "$34.95" as the subtotal for line item 1

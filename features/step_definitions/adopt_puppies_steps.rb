@@ -4,9 +4,9 @@ Given("I am on the puppy adoption site") do
   # @home = HomePage.new(@browser)
 end
 
-When("I click the View Details button {int}") do |num|
-  on(HomePage).select_puppy_number num
-  # @home.select_puppy(num)
+When("I click the View Details button for {string}") do |name|
+  on(HomePage).select_puppy name
+  # @home.select_puppy(name)
   # @details = DetailsPage.new(@browser)
 end
 

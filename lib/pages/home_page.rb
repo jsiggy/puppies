@@ -6,9 +6,14 @@ class HomePage
   divs(:name, class: 'name')
   buttons(:view_detail, value: 'View Details')
 
-  def select_puppy_number(num)
-    view_detail_elements[num].click
-    # button_element(value: 'View Details', index: num).click
+  def select_puppy(name)
+    index = index_for(name)
+    view_detail_elements[index].click
   end
 
+  private
+
+  def index_for(name)
+    name_elements.find_index {|the_div| the_div.text == name}
+  end
 end
