@@ -35,7 +35,7 @@ Feature: Puppy adoption
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: adopt one puppy (use default except for payment_type)
-    When I click the View Details button for "Benjamin"
+    When I click the View Details button
     And I click the Adopt Me button
     And I click the Complete the Adoption button
     When I complete the adoption of a puppy using a "Credit card"

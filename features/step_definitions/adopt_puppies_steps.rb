@@ -2,6 +2,10 @@ Given("I am on the puppy adoption site") do
   visit(HomePage)
 end
 
+When("I click the View Details button") do
+  on(HomePage).select_puppy
+end
+
 When("I click the View Details button for {string}") do |name|
   on(HomePage).select_puppy name
 end
