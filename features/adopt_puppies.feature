@@ -25,7 +25,6 @@ Feature: Puppy adoption
     When I complete the adoption of a puppy with:
       | name | address                 | email         | payment_type   |
       | John | 8110 Ranch Rd 2222      | john@foo.bar  | Credit card    |
-    And I select the Place order button
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: adopt two puppies

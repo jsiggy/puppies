@@ -17,16 +17,7 @@ When("I click the Adopt Me button") do
 end
 
 When("I complete the adoption of a puppy with:") do |table|
-  # grab the first (and only) rowData
-  puts "table: #{table}"
-  rowData = table.hashes.first
-  puts "rowData: #{rowData}"
-  on(CheckoutPage) do |page|
-    page.name = rowData['name']
-    page.email = rowData['email']
-    page.address = rowData['address']
-    page.pay_type = rowData['payment_type']
-  end
+  on(CheckoutPage).checkout(table.hashes.first)
 end
 
 When("I click the Adopt Another Puppy button") do
